@@ -1,0 +1,216 @@
+### Author: Hongli Ma <hongli.ma.explore@gmail.com> 2023-09
+### Usage: Please cite RNAsmol when you use this script
+
+### robin data preparation from SMM target hits matrix (ρ n, ρ r, ρ m)(pos:neg=1:1,1:2,1:5)
+
+import pandas as pd
+import numpy as np
+import random
+from sklearn.model_selection import train_test_split
+import os
+
+smm_na_sequence=pd.read_csv("ROBIN/SMM_full_results/SMM_Sequence_Table_hit_rates.csv")
+### only retain RNA
+smm_na_sequence=smm_na_sequence[smm_na_sequence['Biomolecule Type']=='RNA'].reset_index(drop=True)
+
+smm_target_hits=pd.read_csv("ROBIN/SMM_full_results/SMM_Target_Hits.csv")
+
+### drop DNA targets    
+smm_target_hits.drop(columns=['KRAS_hit','MTOR_hit','MYB_hit','MYC_Pu22_hit','VEGF_hit','RB1_hit','BCL2_hit','CKIT_hit','MYCN_hit'],inplace=True)
+
+
+smm_target_hits_new=smm_target_hits.iloc[:,2:].astype(float).fillna(0)
+hit_mol_ind_list = smm_target_hits_new.loc[~(smm_target_hits_new==0.0).all(axis=1)].index.tolist()
+smm_target_hit_df=smm_target_hits.loc[smm_target_hits.index[hit_mol_ind_list]].reset_index(drop=True)
+
+
+cols=smm_target_hit_df.columns
+compound_iso_smiles=[]
+target_sequence=[]
+affinity=[]
+
+for i in range(len(smm_target_hit_df)):
+    for col in cols[2:]:
+        name=col.rsplit("_",1)[0]
+        ind=smm_na_sequence['Nucleic Acid Target'].tolist().index(name)
+        compound_iso_smiles.append(smm_target_hit_df['Smile'][i])
+        target_sequence.append(smm_na_sequence["Sequence (5' to 3')"][ind].replace('(m6A)','').replace(' and ',''))
+        affinity.append(smm_target_hit_df[col][i])
+          
+        
+df=pd.DataFrame({'compound_iso_smiles':compound_iso_smiles,'target_sequence':target_sequence,'affinity':affinity}).fillna(0)
+df_pos=df[(df['affinity']==1.0)].reset_index(drop=True)
+df_nohit_neg=df[(df['affinity']==0.0)].reset_index(drop=True)
+
+
+### ρ n
+nohit_ind_lst1=random.sample(df_nohit_neg.index.tolist(), len(df_pos))
+nohit_ind_lst2=random.sample(df_nohit_neg.index.tolist(), 2*len(df_pos))
+nohit_ind_lst3=random.sample(df_nohit_neg.index.tolist(), 5*len(df_pos))
+
+df_robin_nohit_posneg11=pd.concat([df_pos,df_nohit_neg.loc[nohit_ind_lst1]])
+df_robin_nohit_posneg12=pd.concat([df_pos,df_nohit_neg.loc[nohit_ind_lst2]])
+df_robin_nohit_posneg15=pd.concat([df_pos,df_nohit_neg.loc[nohit_ind_lst3]])                              
+
+train1, test1 = train_test_split(df_robin_nohit_posneg11, test_size=0.2)
+train2, test2 = train_test_split(df_robin_nohit_posneg12, test_size=0.2)
+train3, test3 = train_test_split(df_robin_nohit_posneg15, test_size=0.2)
+
+train1, val1=train_test_split(train1,test_size=0.25)
+train2, val2=train_test_split(train2,test_size=0.25)
+train3, val3=train_test_split(train3,test_size=0.25)
+
+outdir1 = 'data/robin_netperturbation_posneg11'
+if not os.path.exists(outdir1):
+    os.mkdir(outdir1)
+    os.mkdir(outdir1+'/raw')
+
+test1.to_csv(outdir1+'/raw/data_test.csv',index=False)
+train1.to_csv(outdir1+'/raw/data_train.csv',index=False)
+val1.to_csv(outdir1+'/raw/data_val.csv',index=False)
+
+outdir2 = 'data/robin_netperturbation_posneg12'
+if not os.path.exists(outdir2):
+    os.mkdir(outdir2)
+    os.mkdir(outdir2+'/raw')
+
+test2.to_csv(outdir2+'/raw/data_test.csv',index=False)
+train2.to_csv(outdir2+'/raw/data_train.csv',index=False)
+val2.to_csv(outdir2+'/raw/data_val.csv',index=False)
+
+outdir3 = 'data/robin_netperturbation_posneg15'
+if not os.path.exists(outdir3):
+    os.mkdir(outdir3)
+    os.mkdir(outdir3+'/raw')
+
+test3.to_csv(outdir3+'/raw/data_test.csv',index=False)
+train3.to_csv(outdir3+'/raw/data_train.csv',index=False)
+val3.to_csv(outdir3+'/raw/data_val.csv',index=False)
+
+
+### ρ r
+posneg11_lst=[]
+posneg12_lst=[]
+posneg15_lst=[]
+
+
+index=0
+for i in range(len(df_pos)):
+    neg=dinuclShuffle(df_pos['target_sequence'][i]).replace('T','U')
+    neg2=dinuclShuffle(df_pos['target_sequence'][i]).replace('T','U')
+    neg3=dinuclShuffle(df_pos['target_sequence'][i]).replace('T','U')
+    neg4=dinuclShuffle(df_pos['target_sequence'][i]).replace('T','U')
+    neg5=dinuclShuffle(df_pos['target_sequence'][i]).replace('T','U')
+
+    posneg11_lst.append(df_pos['compound_iso_smiles'][i]+','+df_pos['target_sequence'][i]+','+'1')
+    posneg11_lst.append(df_pos['compound_iso_smiles'][i]+','+neg+','+'0')
+    posneg12_lst.append(df_pos['compound_iso_smiles'][i]+','+df_pos['target_sequence'][i]+','+'1')
+    posneg12_lst.append(df_pos['compound_iso_smiles'][i]+','+neg+','+'0')
+    posneg12_lst.append(df_pos['compound_iso_smiles'][i]+','+neg2+','+'0')
+    posneg15_lst.append(df_pos['compound_iso_smiles'][i]+','+df_pos['target_sequence'][i]+','+'1')
+    posneg15_lst.append(df_pos['compound_iso_smiles'][i]+','+neg+','+'0')
+    posneg15_lst.append(df_pos['compound_iso_smiles'][i]+','+neg2+','+'0')
+    posneg15_lst.append(df_pos['compound_iso_smiles'][i]+','+neg3+','+'0')
+    posneg15_lst.append(df_pos['compound_iso_smiles'][i]+','+neg4+','+'0')
+    posneg15_lst.append(df_pos['compound_iso_smiles'][i]+','+neg5+','+'0')
+
+  
+train1, test1 = train_test_split(posneg11_lst, test_size=0.2)
+train2, test2 = train_test_split(posneg12_lst, test_size=0.2)
+train3, test3 = train_test_split(posneg15_lst, test_size=0.2)
+
+train1, val1=train_test_split(train1,test_size=0.25)
+train2, val2=train_test_split(train2,test_size=0.25)
+train3, val3=train_test_split(train3,test_size=0.25)
+
+uni_cols=['compound_iso_smiles','target_sequence','affinity']
+outdir1 = 'data/robin_rnaperturbation_posneg11'
+if not os.path.exists(outdir1):
+    os.mkdir(outdir1)
+    os.mkdir(outdir1+'/raw')
+
+pd.DataFrame([sub.split(",") for sub in test1],columns=uni_cols).to_csv(outdir1+'/raw/data_test.csv',index=False)
+pd.DataFrame([sub.split(",") for sub in train1],columns=uni_cols).to_csv(outdir1+'/raw/data_train.csv',index=False)
+pd.DataFrame([sub.split(",") for sub in val1],columns=uni_cols).to_csv(outdir1+'/raw/data_val.csv',index=False)
+
+outdir2 = 'data/robin_rnaperturbation_posneg12'
+if not os.path.exists(outdir2):
+    os.mkdir(outdir2)
+    os.mkdir(outdir2+'/raw')
+
+pd.DataFrame([sub.split(",") for sub in test2],columns=uni_cols).to_csv(outdir2+'/raw/data_test.csv',index=False)
+pd.DataFrame([sub.split(",") for sub in train2],columns=uni_cols).to_csv(outdir2+'/raw/data_train.csv',index=False)
+pd.DataFrame([sub.split(",") for sub in val2],columns=uni_cols).to_csv(outdir2+'/raw/data_val.csv',index=False)
+
+outdir3 = 'data/robin_rnaperturbation_posneg15'
+if not os.path.exists(outdir3):
+    os.mkdir(outdir3)
+    os.mkdir(outdir3+'/raw')
+
+pd.DataFrame([sub.split(",") for sub in test3],columns=uni_cols).to_csv(outdir3+'/raw/data_test.csv',index=False)
+pd.DataFrame([sub.split(",") for sub in train3],columns=uni_cols).to_csv(outdir3+'/raw/data_train.csv',index=False)
+pd.DataFrame([sub.split(",") for sub in val3],columns=uni_cols).to_csv(outdir3+'/raw/data_val.csv',index=False)
+
+
+### ρ m
+
+df_proteinbinder=pd.read_csv('datasets/robinrnabinder_bindingdbproteinbinder.csv')
+df_proteinbinder_neg=df_proteinbinder[df_proteinbinder['target']==0.0].reset_index(drop=True)
+
+
+lst=df_proteinbinder_neg.index.tolist()
+random_negind1=random.sample(lst, len(df_pos))
+random_negind2=random.sample(lst, 2*len(df_pos))
+random_negind3=random.sample(lst, 5*len(df_pos))
+
+negsmile1=df_proteinbinder_neg.loc[random_negind1]['SMILES'].tolist()
+negsmile2=df_proteinbinder_neg.loc[random_negind2]['SMILES'].tolist()
+negsmile3=df_proteinbinder_neg.loc[random_negind3]['SMILES'].tolist()
+
+negaff1=df_proteinbinder_neg.loc[random_negind1]['target'].tolist()
+negaff2=df_proteinbinder_neg.loc[random_negind2]['target'].tolist()
+negaff3=df_proteinbinder_neg.loc[random_negind3]['target'].tolist()
+
+df_neg1=pd.DataFrame({'compound_iso_smiles':negsmile1,'target_sequence':df_pos['target_sequence'].tolist(),'affinity':negaff1})
+df_neg2=pd.DataFrame({'compound_iso_smiles':negsmile2,'target_sequence':df_pos['target_sequence'].tolist()*2,'affinity':negaff2})
+df_neg3=pd.DataFrame({'compound_iso_smiles':negsmile3,'target_sequence':df_pos['target_sequence'].tolist()*5,'affinity':negaff3})
+
+df_robin_proteinbinder_posneg11=pd.concat([df_pos,df_neg1])
+df_robin_proteinbinder_posneg12=pd.concat([df_pos,df_neg2])
+df_robin_proteinbinder_posneg15=pd.concat([df_pos,df_neg3])
+
+train1, test1 = train_test_split(df_robin_proteinbinder_posneg11, test_size=0.2)
+train2, test2 = train_test_split(df_robin_proteinbinder_posneg12, test_size=0.2)
+train3, test3 = train_test_split(df_robin_proteinbinder_posneg15, test_size=0.2)
+
+train1, val1=train_test_split(train1,test_size=0.25)
+train2, val2=train_test_split(train2,test_size=0.25)
+train3, val3=train_test_split(train3,test_size=0.25)
+
+outdir1 = 'data/robin_molperturbation_posneg11'
+if not os.path.exists(outdir1):
+    os.mkdir(outdir1)
+    os.mkdir(outdir1+'/raw')
+
+test1.to_csv(outdir1+'/raw/data_test.csv',index=False)
+train1.to_csv(outdir1+'/raw/data_train.csv',index=False)
+val1.to_csv(outdir1+'/raw/data_val.csv',index=False)
+
+outdir2 = 'data/robin_molperturbation_posneg12'
+if not os.path.exists(outdir2):
+    os.mkdir(outdir2)
+    os.mkdir(outdir2+'/raw')
+
+test2.to_csv(outdir2+'/raw/data_test.csv',index=False)
+train2.to_csv(outdir2+'/raw/data_train.csv',index=False)
+val2.to_csv(outdir2+'/raw/data_val.csv',index=False)
+
+outdir3 = 'data/robin_molperturbation_posneg15'
+if not os.path.exists(outdir3):
+    os.mkdir(outdir3)
+    os.mkdir(outdir3+'/raw')
+
+test3.to_csv(outdir3+'/raw/data_test.csv',index=False)
+train3.to_csv(outdir3+'/raw/data_train.csv',index=False)
+val3.to_csv(outdir3+'/raw/data_val.csv',index=False)
+
