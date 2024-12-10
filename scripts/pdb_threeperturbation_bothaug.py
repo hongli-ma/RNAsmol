@@ -22,10 +22,10 @@ import glob
 import random
 import networkx as nx
 
-pdbrnaprotein_nonredundent_df_pos=pd.read_csv("rnadrug_dataset/pdb_rnaprotein_ligandsmile_rnaseq_affinity_pos_nonredundent",sep='\t',header=None)
+pdbrnaprotein_nonredundent_df_pos=pd.read_csv("datasets/pdb_rnaprotein_ligandsmile_rnaseq_affinity_pos_nonredundent",sep='\t',header=None)
 pdbrnaprotein_nonredundent_df_pos.columns=['compound_iso_smiles','target_sequence','affinity']
 
-ribo_homo_pos=pd.read_csv('rnadrug_dataset/riboswitches/data_riboswitch_homo_pos.csv',header=None)
+ribo_homo_pos=pd.read_csv('datasets/data_rna_homo_pos.csv',header=None)
 
 
 train, test = train_test_split(pdbrnaprotein_nonredundent_df_pos, test_size=0.2)
@@ -44,7 +44,7 @@ def cal_hpdf(fps,smiles,mol_fps):
     sim_hp = pd.DataFrame(sim_list, columns=['similarity', 'smiles'])
     return sim_hp
 
-smiles=pd.read_csv('rnadrug_dataset/in-vitro.smi')['SMILES'].tolist() 
+smiles=pd.read_csv('datasets/in-vitro.smi')['SMILES'].tolist() 
 
 decoyset_fps = [MACCSkeys.GenMACCSKeys(Chem.MolFromSmiles(x)) for x in smiles]
 
