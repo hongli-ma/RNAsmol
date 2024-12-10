@@ -13,10 +13,10 @@ import os
 import networkx as nx
 import random
 
-pdbrnaprotein_nonredundent_df_pos=pd.read_csv("rnadrug_dataset/pdb_rnaprotein_ligandsmile_rnaseq_affinity_pos_nonredundent",sep='\t',header=None)
+pdbrnaprotein_nonredundent_df_pos=pd.read_csv("datasets/pdb_rnaprotein_ligandsmile_rnaseq_affinity_pos_nonredundent",sep='\t',header=None)
 pdbrnaprotein_nonredundent_df_pos.columns=['compound_iso_smiles','target_sequence','affinity']
 
-ribo_homo_pos=pd.read_csv('rnadrug_dataset/riboswitches/data_riboswitch_homo_pos.csv',header=None)
+ribo_homo_pos=pd.read_csv('datasets/data_rna_homo.csv',header=None)
 
 
 train, test = train_test_split(pdbrnaprotein_nonredundent_df_pos, test_size=0.2)
