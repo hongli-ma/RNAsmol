@@ -9,7 +9,6 @@ import argparse
 #from metrics import get_cindex, get_rm2
 from metrics import accuracy, sensitivity, specificity,precision, f1_score, roc_auc,pr_auc,mcc_score,recall
 from dataset import *
-#from model import MGraphDTA
 from model import MCNN_GCN
 from utils import *
 from metrics import *
