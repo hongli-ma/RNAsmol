@@ -17,7 +17,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plot/overview.png" alt="overview" width="800" height="480">
+    <img src="_plot/overview.png" alt="overview" width="700" height="480">
   </a>
 
 ## Get started
