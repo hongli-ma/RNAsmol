@@ -17,7 +17,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plot/overview.png" alt="overview" width="600" height="480">
+    <img src="_plot/overview.png" alt="overview" width="800" height="480">
   </a>
 
 ## Get started
@@ -63,7 +63,7 @@ conda env create -n rnasmol -f RNAsmol.yml
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plot/method_framework.png" alt="overview" width="600" height="480">
+    <img src="_plot/method_framework.png" alt="overview" width="1000" height="480">
   </a>
 
 ### Databases and tools involved in perturbation and augmentation
