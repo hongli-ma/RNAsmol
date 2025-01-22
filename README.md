@@ -17,7 +17,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plots/overview.png" alt="overview" width="600" height="480">
+    <img src="_plot/overview.png" alt="overview" width="600" height="480">
   </a>
 
 ## Get started
@@ -47,7 +47,7 @@ conda env create -n rnasmol -f RNAsmol.yml
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plots/filtered_network.png" alt="overview" width="600" height="480">
+    <img src="_plot/filtered_network.png" alt="overview" width="600" height="480">
   </a>
 
 * RCSB Protein Data Bank (PDB) database: https://www.rcsb.org/
@@ -63,7 +63,7 @@ conda env create -n rnasmol -f RNAsmol.yml
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plots/method_framework.png" alt="overview" width="600" height="480">
+    <img src="_plot/method_framework.png" alt="overview" width="600" height="480">
   </a>
 
 ### Databases and tools involved in perturbation and augmentation
