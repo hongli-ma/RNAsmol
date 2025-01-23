@@ -47,7 +47,7 @@ conda env create -n rnasmol -f RNAsmol.yml
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plot/filtered_network.jpeg" alt="network" width="925" height="480">
+    <img src="_plot/filtered_network.jpeg" alt="network" width="1000" height="480">
   </a>
 
 * RCSB Protein Data Bank (PDB) database: https://www.rcsb.org/
