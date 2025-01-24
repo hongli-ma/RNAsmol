@@ -94,7 +94,9 @@ Please refer to the scripts folder to reproduce the perturbations and augmentati
 
 ### 1.Activate the created conda environment
 
-`source activate rnasmol`
+```
+source activate rnasmol
+```
 
 ### 2. Data preprocessing
 
