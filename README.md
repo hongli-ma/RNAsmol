@@ -53,7 +53,7 @@ conda env create -n rnasmol -f RNAsmol.yml
 * RCSB Protein Data Bank (PDB) database: https://www.rcsb.org/
 * Repository Of Binders to Nucleic acids (ROBIN) dataset: https://github.com/ky66/ROBIN
 <br />
-* PDB RNA-ligand complex filtering:<br />
+PDB RNA-ligand complex filtering:<br />
   (1) https://github.com/lkmoeller/rna_binding/blob/main/rna_binding/data_preparation/rna_data_prep.py<br />(2) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/extract_pdb_binding_pocket.py<br />(3) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/pocket_res_analyse.py<br />
 
 ### Method framework
@@ -70,8 +70,7 @@ conda env create -n rnasmol -f RNAsmol.yml
 * filtered BindingDB protein binder library: https://drive.google.com/file/d/16XztVAf6qHYUeXEtnGUxDxhsFuFAdTD2/view?usp=drive_link (Note: label 1 are rnabinder in ROBIN, label 0 are proteinbinder in BindingDB)
 * the COlleCtion of Open NatUral producTs (COCONUT) library: https://coconut.naturalproducts.net/
 * filtered ZINC in-vitro bioactive compound library: https://drive.google.com/file/d/1VxrGt0-iI5q_VoYU0PFNRzZzxPrDUK30/view?usp=drive_link
-* Ligand ID-smiles in PDB structures: https://drive.google.com/file/d/1TUqV_IY4u5M00MpUHB_QuMZr0hDi9e-M/view?usp=drive_link
-<br />
+* Ligand ID-smiles in PDB structures: https://drive.google.com/file/d/1TUqV_IY4u5M00MpUHB_QuMZr0hDi9e-M/view?usp=drive_link <br />
 
 * A genomic catalog of Earth’s microbiomes (GEMs): https://genome.jgi.doe.gov/portal/GEMs/GEMs.home.html
 * Unified Human Gastrointestinal Genome (UHGG) collection: https://www.ebi.ac.uk/metagenomics
@@ -80,8 +79,7 @@ conda env create -n rnasmol -f RNAsmol.yml
 * Tibetan Glacier Genome and Gene (TG2G) catalog: https://ngdc.cncb.ac.cn/gsa/browse/CRA011511
 * RNAcentral: The non-coding RNA sequence database: https://rnacentral.org/
 * The Nucleotide database of NCBI: https://www.ncbi.nlm.nih.gov/nucleotide/
-* Rfam database: https://rfam.org/
-<br />
+* Rfam database: https://rfam.org/ <br />
 
 * Infernal: https://github.com/EddyRivasLab/infernal 
 * rMSA: https://github.com/pylelab/rMSA
