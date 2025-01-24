@@ -9,7 +9,7 @@
 
 
 [![python
-\>3.7.16](https://img.shields.io/badge/python-3.7.16-brightgreen)](https://www.python.org/) [![PyTorch](https://img.shields.io/badge/PyTorch-1.7.1-red)](https://pytorch.org/) [![Open in Colab](https://img.shields.io/badge/Open%20in-Colab-ffeb3b?logo=googlecolab&logoColor=black)](https://colab.research.google.com/drive/1c-xyz...) ![GPL License](https://img.shields.io/badge/License-GPL_3.0-blue.svg)
+\>3.7.16](https://img.shields.io/badge/python-3.7.16-brightgreen)](https://www.python.org/) [![PyTorch](https://img.shields.io/badge/PyTorch-1.7.1-red)](https://pytorch.org/)  ![GPL License](https://img.shields.io/badge/License-GPL_3.0-blue.svg)
 
 
 ## Overview
@@ -17,16 +17,16 @@
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plot/overview.png" alt="overview" width="624" height="480">
+    <img src="_plots/overview.png" alt="overview" width="624" height="480">
   </a>
 
-## Get started
+## Getting started
 
 ### Prerequisites
 
-* This project was tested on eight 32GB V100 NVIDIA GPUs for model training and multiple 80-core CPUs for multi-threaded preprocessing.
+* This project was carried out on eight 32GB V100 NVIDIA GPUs for model training and multiple 80-core CPUs for multi-threaded preprocessing.
+* Key requirements: rdkit, torch-geometric, networkx
 * Software/API used in this project: PyMOL, LigPlot+
-* Key requirements: rdkit, torch-geometric
 
 ### Environment
 
@@ -47,32 +47,31 @@ conda env create -n rnasmol -f RNAsmol.yml
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plot/filtered_network.jpeg" alt="network" width="960" height="420">
+    <img src="_plots/filtered_network.jpeg" alt="network" width="960" height="420">
   </a>
 
 * RCSB Protein Data Bank (PDB) database: https://www.rcsb.org/
 * Repository Of Binders to Nucleic acids (ROBIN) dataset: https://github.com/ky66/ROBIN
-  
+<br /> 
 * PDB RNA-ligand complex filtering:
-  (1) https://github.com/lkmoeller/rna_binding/blob/main/rna_binding/data_preparation/rna_data_prep.py
-  (2) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/extract_pdb_binding_pocket.py
-  (3) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/pocket_res_analyse.py
+  (1) https://github.com/lkmoeller/rna_binding/blob/main/rna_binding/data_preparation/rna_data_prep.py<br />(2) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/extract_pdb_binding_pocket.py<br />(3) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/pocket_res_analyse.py<br />
 
 ### Method framework
 
 <br />
 <p align="center">
   <a href="https://github.com/hongli-ma/RNAsmol">
-    <img src="_plot/method_framework.png" alt="method" width="858" height="480">
+    <img src="_plots/method_framework.png" alt="method" width="858" height="480">
   </a>
 
 ### Databases and tools involved in perturbation and augmentation
 
-* Diverse ChemBridge BuildingBlocks (chbrbb) library:  
-* BindingDB protein binder library:
-* the COlleCtion of Open NatUral producTs (COCONUT) library:
-* filtered ZINC in-vitro bioactive compound library: 
-
+* Diverse ChemBridge BuildingBlocks (chbrbb) library: https://zinc12.docking.org/catalogs/chbrbb 
+* filtered BindingDB protein binder library: https://drive.google.com/file/d/16XztVAf6qHYUeXEtnGUxDxhsFuFAdTD2/view?usp=drive_link (Note: label 1 are rnabinder in ROBIN, label 0 are proteinbinder in BindingDB)
+* the COlleCtion of Open NatUral producTs (COCONUT) library: https://coconut.naturalproducts.net/
+* filtered ZINC in-vitro bioactive compound library: https://drive.google.com/file/d/1VxrGt0-iI5q_VoYU0PFNRzZzxPrDUK30/view?usp=drive_link
+* Ligand ID-smiles in PDB structures: https://drive.google.com/file/d/1TUqV_IY4u5M00MpUHB_QuMZr0hDi9e-M/view?usp=drive_link
+<br />
 * A genomic catalog of Earth’s microbiomes (GEMs): https://genome.jgi.doe.gov/portal/GEMs/GEMs.home.html
 * Unified Human Gastrointestinal Genome (UHGG) collection: https://www.ebi.ac.uk/metagenomics
 * The NIH Human Microbiome Project phase 2 (HMP2): https://portal.hmpdacc.org/ 
@@ -80,11 +79,14 @@ conda env create -n rnasmol -f RNAsmol.yml
 * Tibetan Glacier Genome and Gene (TG2G) catalog: https://ngdc.cncb.ac.cn/gsa/browse/CRA011511
 * RNAcentral: The non-coding RNA sequence database: https://rnacentral.org/
 * The Nucleotide database of NCBI: https://www.ncbi.nlm.nih.gov/nucleotide/
-
+* Rfam database: https://rfam.org/
+<br />
 * Infernal: https://github.com/EddyRivasLab/infernal 
 * rMSA: https://github.com/pylelab/rMSA
+* dinuclShuffle: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/dinuclShuffle.py
+* RNAfold: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/run_rnafold.py
 
-
+Please refer to the scripts folder to reproduce the perturbations and augmentations, order: augmentation -> perturbation -> RNAfold<br /> All processed datasets are also provided in google drive link. 
 
 ## Implementation
 
@@ -95,28 +97,41 @@ conda env create -n rnasmol -f RNAsmol.yml
 ### 2. Data preprocessing
 
 ```         
-python rnasmol/preprocessing.py pdb/rnaperturbation  
+python rnasmol/preprocessing.py pdb_rnaperturbation  
 ```
 
 ### 3. Model training
 
 ```         
-python rnasmol/train.py --dataset pdb/rnaperturbation  --lr 5e-5 --batch_size 1024 --save_model
+python rnasmol/train.py --dataset pdb_rnaperturbation  --lr 5e-5 --batch_size 1024 --save_model
 ```
 
 ### 4. Model test
 
 ``` text
-python rnasmol/test.py --dataset pdb/rnaperturbation  --model_path 'save/*.pt'
+python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'save/*.pt'
 ```
 
 ## Evaluation
 
 ### 1. Classification
 
+* Dataset without augmentations: https://github.com/hongli-ma/RNAsmol/data/
+* Augmented dataset: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
+* Unseen evaluation dataset: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
+* ROBIN single target dataset: https://drive.google.com/file/d/151jIUrWLVUYUdRMHGiURNDmYhEwPYc8R/view?usp=drive_link
+
 ### 2. Decoy
 
+* Generate decoy datasets: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/modified_decoyfinder.py
+* fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
+* Case study decoy test sets are provided: https://github.com/hongli-ma/RNAsmol/tree/main/datasets
+  
+## Contact
 
+For questions, requests, or bug reports, feel free to open an issue on the repo or contact Hongli Ma at hongli.ma.explore@gmail.com.
+
+  
 ## License and Disclaimer
 
 This tool is for research purpose and not approved for clinical use. The tool shall not be used for commercial purposes without permission.
