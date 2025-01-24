@@ -53,7 +53,6 @@ conda env create -n rnasmol -f RNAsmol.yml
 * RCSB Protein Data Bank (PDB) database: https://www.rcsb.org/
 * Repository Of Binders to Nucleic acids (ROBIN) dataset: https://github.com/ky66/ROBIN
 <br />
-
 * PDB RNA-ligand complex filtering:<br />
   (1) https://github.com/lkmoeller/rna_binding/blob/main/rna_binding/data_preparation/rna_data_prep.py<br />(2) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/extract_pdb_binding_pocket.py<br />(3) https://github.com/hongli-ma/RNAsmol/blob/main/scripts/pocket_res_analyse.py<br />
 
