@@ -120,7 +120,7 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'save/*.pt'
 
 ### 1. Classification
 
-* Dataset without augmentations: https://github.com/hongli-ma/RNAsmol/data/
+* Dataset without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/data
 * Augmented dataset: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
 * Unseen evaluation dataset: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
 * ROBIN single target dataset: https://drive.google.com/file/d/151jIUrWLVUYUdRMHGiURNDmYhEwPYc8R/view?usp=drive_link
