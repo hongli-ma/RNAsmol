@@ -60,6 +60,7 @@ def val(model, criterion, dataloader, device):
 
     return epoch_loss, acc, sen, spe, pre, rec, f1score, rocauc, prauc, mcc, label, pred, f
 
+val=val
 
 def main():
     parser = argparse.ArgumentParser()
