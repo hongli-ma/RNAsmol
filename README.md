@@ -92,7 +92,7 @@ Please refer to the scripts folder to reproduce the perturbations and augmentati
 
 ## Implementation
 
-### 0. To get started more quickly, please refer to the demo notebook of the model: RNAsmol_demo.ipynb
+To get started more quickly, please refer to the demo notebook of the model: [RNAsmol_demo.ipynb](https://github.com/hongli-ma/RNAsmol/blob/main/RNAsmol_demo.ipynb)
 ### 1.Activate the created conda environment
 
 ```
@@ -130,9 +130,9 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 ### 2. Decoy
 
 * All generated PDB and ROBIN decoy test datasets are provided in google drive links:
-* Generated PDB decoy test datasets:https://drive.google.com/file/d/17JuAJDzrROcDpuFw2QVvuvIk7PJN1zaV/view?usp=drive_link
+* Generated PDB decoy test datasets: https://drive.google.com/file/d/17JuAJDzrROcDpuFw2QVvuvIk7PJN1zaV/view?usp=drive_link
 * Generated ROBIN decoy test datasets: https://drive.google.com/file/d/1XFMKFZXZuWBWKjfq7Ph3TQX_FTbvExoi/view?usp=drive_link
-* Case study decoy test sets are provided: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
+* Case study decoy test sets: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
 * fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
 
 ## Citation
