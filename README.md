@@ -113,7 +113,7 @@ python rnasmol/train.py --dataset pdb_rnaperturbation  --lr 5e-5 --batch_size 10
 ### 4. Model test
 
 ``` text
-python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'save/*.pt'
+python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/*.pt'
 ```
 
 ## Evaluation
