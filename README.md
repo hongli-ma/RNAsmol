@@ -1,7 +1,11 @@
 
 
 
-<h1 align="center">RNAsmol</h1>
+<h1 align="center">
+
+RNAsmol <img src="https://static.wikia.nocookie.net/sprunked/images/a/a8/Smol2.png/revision/latest?cb=20241106041026" alt="Image description" style="float: center; width: 42px; height: 42px; margin-left: -5px; margin-bottom: -8px;"/>
+
+</h1>
   <p align="center">
     RNA-ligand interaction scoring via data perturbation and augmentation modeling
   </p>
