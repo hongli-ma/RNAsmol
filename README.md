@@ -10,7 +10,7 @@
 
 [![python
 \>3.7.16](https://img.shields.io/badge/python-3.7.16-brightgreen)](https://www.python.org/) [![PyTorch](https://img.shields.io/badge/PyTorch-1.7.1-red)](https://pytorch.org/)  ![GPL License](https://img.shields.io/badge/License-GPL_3.0-blue.svg)
-
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/14CRDxml2PYnI1aArxOmuMtaag5AXyRTq?usp=sharing)
 
 ## Overview
 
