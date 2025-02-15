@@ -92,6 +92,7 @@ Please refer to the scripts folder to reproduce the perturbations and augmentati
 
 ## Implementation
 
+### 0. To get started more quickly, please refer to the demo notebook of the model: RNAsmol_demo.ipynb
 ### 1.Activate the created conda environment
 
 ```
@@ -115,22 +116,22 @@ python rnasmol/train.py --dataset pdb_rnaperturbation  --lr 5e-5 --batch_size 10
 ``` text
 python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/*.pt'
 ```
-* To get started more quickly, please refer to the demo notebook of the model: RNAsmol_demo.ipynb.
-* 
+
+  
 ## Evaluation
 
 ### 1. Classification
 * All processed datasets for classification task are provided in google drive links:
-* Dataset without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data  
-* Augmented dataset: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
-* Unseen evaluation dataset: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
-* ROBIN single target dataset: https://drive.google.com/file/d/151jIUrWLVUYUdRMHGiURNDmYhEwPYc8R/view?usp=drive_link
+* Datasets without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data  
+* Augmented datasets: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
+* Unseen evaluation datasets: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
+* ROBIN single target datasets: https://drive.google.com/file/d/151jIUrWLVUYUdRMHGiURNDmYhEwPYc8R/view?usp=drive_link
 
 ### 2. Decoy
 
 * All generated PDB and ROBIN decoy test datasets are provided in google drive links:
-* Generated PDB decoy test datasets are provided:https://drive.google.com/file/d/17JuAJDzrROcDpuFw2QVvuvIk7PJN1zaV/view?usp=drive_link
-* Generated ROBIN decoy test datasets are provided: https://drive.google.com/file/d/1XFMKFZXZuWBWKjfq7Ph3TQX_FTbvExoi/view?usp=drive_link
+* Generated PDB decoy test datasets:https://drive.google.com/file/d/17JuAJDzrROcDpuFw2QVvuvIk7PJN1zaV/view?usp=drive_link
+* Generated ROBIN decoy test datasets: https://drive.google.com/file/d/1XFMKFZXZuWBWKjfq7Ph3TQX_FTbvExoi/view?usp=drive_link
 * Case study decoy test sets are provided: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
 * fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
 
