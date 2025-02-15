@@ -88,11 +88,12 @@ PDB RNA-ligand complex filtering:<br />
 * dinuclShuffle: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/dinuclShuffle.py
 * RNAfold: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/run_rnafold.py
 
-Please refer to the scripts folder to reproduce the perturbations and augmentations, order: augmentation -> perturbation -> RNAfold<br /> All processed datasets are also provided in google drive link (see Evaluation section). 
+Please refer to the scripts folder to reproduce the perturbations and augmentations, order: augmentation -> perturbation -> RNAfold<br /> All processed datasets are also provided (see Evaluation section). 
 
 ## Implementation
 
 To get started more quickly, please refer to the demo notebook of the model: [RNAsmol_demo.ipynb](https://github.com/hongli-ma/RNAsmol/blob/main/RNAsmol_demo.ipynb)
+
 ### 1.Activate the created conda environment
 
 ```
@@ -121,7 +122,7 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 ## Evaluation
 
 ### 1. Classification
-* All processed datasets for classification task are provided in google drive links:
+* All processed datasets for classification task are provided:
 * Datasets without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data  
 * Augmented datasets: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
 * Unseen evaluation datasets: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
@@ -129,7 +130,7 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 
 ### 2. Decoy
 
-* All generated PDB and ROBIN decoy test datasets are provided in google drive links:
+* All generated datasets for decoy evaluation are provided:
 * Generated PDB decoy test datasets: https://drive.google.com/file/d/17JuAJDzrROcDpuFw2QVvuvIk7PJN1zaV/view?usp=drive_link
 * Generated ROBIN decoy test datasets: https://drive.google.com/file/d/1XFMKFZXZuWBWKjfq7Ph3TQX_FTbvExoi/view?usp=drive_link
 * Case study decoy test sets: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
