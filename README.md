@@ -120,7 +120,7 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 
 ### 1. Classification
 
-* Dataset without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/data
+* Dataset without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data  
 * Augmented dataset: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
 * Unseen evaluation dataset: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
 * ROBIN single target dataset: https://drive.google.com/file/d/151jIUrWLVUYUdRMHGiURNDmYhEwPYc8R/view?usp=drive_link
@@ -129,8 +129,7 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 
 * Generate decoy datasets: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/modified_decoyfinder.py
 * fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
-* Case study decoy test sets are provided: https://github.com/hongli-ma/RNAsmol/tree/main/datasets
-
+* Case study decoy test sets are provided: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
 ## Citation
 Ma H, Gao L, Jin Y, et al. RNA-ligand interaction scoring via data perturbation and augmentation modeling[J]. bioRxiv, 2024: 2024.06. 26.600802.
 ## Contact
