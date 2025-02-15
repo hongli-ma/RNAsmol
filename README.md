@@ -88,7 +88,7 @@ PDB RNA-ligand complex filtering:<br />
 * dinuclShuffle: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/dinuclShuffle.py
 * RNAfold: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/run_rnafold.py
 
-Please refer to the scripts folder to reproduce the perturbations and augmentations, order: augmentation -> perturbation -> RNAfold<br /> All processed datasets are also provided in google drive link. 
+Please refer to the scripts folder to reproduce the perturbations and augmentations, order: augmentation -> perturbation -> RNAfold<br /> All processed datasets are also provided in google drive link (see Evaluation section). 
 
 ## Implementation
 
@@ -115,11 +115,12 @@ python rnasmol/train.py --dataset pdb_rnaperturbation  --lr 5e-5 --batch_size 10
 ``` text
 python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/*.pt'
 ```
-
+* To get started more quickly, please refer to the demo notebook of the model: RNAsmol_demo.ipynb.
+* 
 ## Evaluation
 
 ### 1. Classification
-
+* All processed datasets for classification task are provided in google drive links:
 * Dataset without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data  
 * Augmented dataset: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
 * Unseen evaluation dataset: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
@@ -127,14 +128,17 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 
 ### 2. Decoy
 
-* Generate decoy datasets: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/modified_decoyfinder.py
-* fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
+* All generated PDB and ROBIN decoy test datasets are provided in google drive links:
+* Generated PDB decoy test datasets are provided:https://drive.google.com/file/d/17JuAJDzrROcDpuFw2QVvuvIk7PJN1zaV/view?usp=drive_link
+* Generated ROBIN decoy test datasets are provided: https://drive.google.com/file/d/1XFMKFZXZuWBWKjfq7Ph3TQX_FTbvExoi/view?usp=drive_link
 * Case study decoy test sets are provided: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
+* fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
+
 ## Citation
 Ma H, Gao L, Jin Y, et al. RNA-ligand interaction scoring via data perturbation and augmentation modeling[J]. bioRxiv, 2024: 2024.06. 26.600802.
 ## Contact
 
-For questions, requests, or bug reports, feel free to open an issue on the repo or contact Hongli Ma at hongli.ma.explore@gmail.com.
+For any questions, requests, or bug reports, feel free to open an issue on the repo or contact Hongli Ma at hongli.ma.explore@gmail.com.
 
   
 ## License and Disclaimer
