@@ -3,7 +3,7 @@
 
 <h1 align="center">
 
-RNAsmol <img src="https://static.wikia.nocookie.net/sprunked/images/a/a8/Smol2.png/revision/latest?cb=20241106041026" alt="Image description" style="float: center; width: 42px; height: 42px; margin-left: -5px; margin-bottom: -8px;"/>
+RNAsmol <img src="https://static.wikia.nocookie.net/sprunked/images/a/a8/Smol2.png/revision/latest?cb=20241106041026" alt="Image description" style="float: center; width: 45px; height: 45px; margin-left: -5px; margin-bottom: -10px;"/>
 
 </h1>
   <p align="center">
