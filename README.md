@@ -129,14 +129,10 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 * All processed datasets for classification task are provided:
 * Datasets without augmentations: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data  
 * Augmented datasets: https://drive.google.com/file/d/18pYf7ZgL1F9WzrLB1z1Kq5br4Q9s1C_1/view?usp=drive_link
-* Unseen evaluation datasets: https://drive.google.com/file/d/1eSTv_FUjhZUM43n90hEsN5fe4_XeG_Hs/view?usp=drive_link
-* ROBIN single target datasets: https://drive.google.com/file/d/151jIUrWLVUYUdRMHGiURNDmYhEwPYc8R/view?usp=drive_link
 
 ### 2. Decoy
 
-* All generated datasets for decoy evaluation are provided:
-* Generated PDB decoy test datasets: https://drive.google.com/file/d/17JuAJDzrROcDpuFw2QVvuvIk7PJN1zaV/view?usp=drive_link
-* Generated ROBIN decoy test datasets: https://drive.google.com/file/d/1XFMKFZXZuWBWKjfq7Ph3TQX_FTbvExoi/view?usp=drive_link
+* Generate datasets for decoyfinder
 * Case study decoy test sets: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
 * fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
 
