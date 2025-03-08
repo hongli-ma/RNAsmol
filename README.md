@@ -132,7 +132,7 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 
 ### 2. Decoy
 
-* Generate datasets for decoyfinder
+* Generate datasets using decoyfinder: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/modified_decoyfinder.py
 * Case study decoy test sets: https://github.com/hongli-ma/RNAsmol/tree/main/rnasmol/data 
 * fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
 
