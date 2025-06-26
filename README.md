@@ -137,7 +137,8 @@ python rnasmol/test.py --dataset pdb_rnaperturbation  --model_path 'saved_model/
 * fr3d files used in RNAmigos and RNAmigos2: https://www.bgsu.edu/research/rna/software/fr3d.html
 
 ## Citation
-Ma H, Gao L, Jin Y, et al. RNA-ligand interaction scoring via data perturbation and augmentation modeling[J]. bioRxiv, 2024: 2024.06. 26.600802.
+Ma, H., Gao, L., Jin, Y. et al. RNA–ligand interaction scoring via data perturbation and augmentation modeling. Nat Comput Sci (2025). https://doi.org/10.1038/s43588-025-00820-x
+Complimentary sharing full-text (free and view-only): https://rdcu.be/etaiM
 ## Contact
 
 For any questions, requests, or bug reports, feel free to open an issue on the repo or contact Hongli Ma at hongli.ma.explore@gmail.com.
