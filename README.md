@@ -92,8 +92,7 @@ PDB RNA-ligand complex filtering:<br />
 * dinuclShuffle: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/dinuclShuffle.py
 * RNAfold: https://github.com/hongli-ma/RNAsmol/blob/main/scripts/run_rnafold.py
 
-Please refer to the scripts folder to reproduce the perturbations and augmentations, order: augmentation -> perturbation -> RNAfold<br /> All processed datasets are also provided (see Evaluation section). 
-
+Please refer to the scripts folder to reproduce the perturbations and augmentations, order: augmentation -> perturbation -> RNAfold<br /> All processed datasets are also provided (see Evaluation section). /> Note: T/t is used instead of U/u in the dataset, as RNAfold converts uracil (U) to thymine (T) during structure prediction.
 ## Implementation
 
 To get started more quickly, please refer to the demo notebook of the model: [RNAsmol_demo.ipynb](https://github.com/hongli-ma/RNAsmol/blob/main/RNAsmol_demo.ipynb)
